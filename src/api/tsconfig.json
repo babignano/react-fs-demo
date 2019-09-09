@@ -7,7 +7,7 @@
         "noImplicitAny": false,
         "moduleResolution": "node",
         "allowJs": true,
-        "outDir": "../../functions",
+        "outDir": "../../build/api",
         "baseUrl": ".",
         "types": [
             "node"

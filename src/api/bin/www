@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 const { app, apolloServer } = require('../src/api');
 const debug = require('debug')('react-fs-demo:server');
 const http = require('http');
