@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./api/bin/www",
+    "start": "node ./api/bin/www.js",
     "dev": "concurrently \"ts-node-dev --respawn --transpileOnly ./bin/www\" \"node src/app/scripts/start.js\"",
     "build": "node src/app/scripts/build.js && rsync -av --exclude 'tsconfig.json' --exclude '**/*.js' --exclude '**/*.ts' src/api build &&tsc -p src/api",
     "test": "node src/app/scripts/test.js"
