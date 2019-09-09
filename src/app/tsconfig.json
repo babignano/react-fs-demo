@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "outDir": "../../build/",
+        "sourceMap": true,
+        "noImplicitAny": false,
+        "module": "commonjs",
+        "target": "es6",
+        "jsx": "react",
+        "allowSyntheticDefaultImports": true,
+        "types": ["jest"],
+        "typeRoots": ["./types", "node_modules/@types"]
+    }
+}
