@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./api/bin/www.js",
-    "dev": "concurrently \"ts-node-dev --respawn --transpileOnly ./bin/www\" \"node src/app/scripts/start.js\"",
-    "build": "node src/app/scripts/build.js && rsync -av --exclude 'tsconfig.json' --exclude '**/*.js' --exclude '**/*.ts' src/api build &&tsc -p src/api",
+    "dev": "concurrently \"nodemon ./api/bin/www.js\" \"node src/app/scripts/start.js\"",
+    "build": "node src/app/scripts/build.js",
     "test": "node src/app/scripts/test.js"
   },
   "dependencies": {

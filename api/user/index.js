@@ -1,5 +1,7 @@
 const { gql } = require('apollo-server');
 const { find, filter } = require('lodash');
+const models = require('../models');
+
 
 const typeDefs = gql`
   type User {
@@ -12,23 +14,21 @@ const typeDefs = gql`
   }
   type Mutation {
     updateUser(firstName: String, lastName: String, email: String): User!
+    createUser(firstName: String, lastName: String, email: String): User!
   }
 `;
 
 const resolvers = {
     Query: {
-        user(parent, args, context, info) {
-            // return find(authors, { id: args.id });
-        }
+        user: async(parent, args, context, info) =>  models.User.find({})
     },
     Mutation: {
-        updateUser: (parent, { firstName, lastName, email }) => {
-            return {
-
-            }
+        updateUser: async (parent, { firstName, lastName, email }) => { },
+        createUser: async (parent, { firstName, lastName, email }) => {
+          const user = new models.User({ firstName, lastName, email });
+          await user1.save();
         },
     },
 };
 
 module.exports = { typeDefs, resolvers }; 
-

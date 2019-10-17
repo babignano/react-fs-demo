@@ -4,12 +4,12 @@ import List from '@material-ui/core/List';
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 
-function Tasks(props) {
+function Tasks() {
 
     const { loading, error, data } = useQuery(gql`
         {
-            tasks {
-                id,
+            task {
+                _id,
                 title,
                 description
             }
@@ -21,8 +21,8 @@ function Tasks(props) {
 
     return (
         <List>
-            { data.tasks.map(({ id, title, description }) =>
-                <Task key={id} id={id} title={title} description={description} />)
+            { data.task.map(({ id, title, description }) =>
+                <Task key={id} title={title} description={description} />)
             }
         </List>
     );

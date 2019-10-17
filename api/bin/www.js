@@ -1,4 +1,4 @@
-const { app, apolloServer } = require('../src/api');
+const { app, apolloServer } = require('./../index.js');
 const debug = require('debug')('react-fs-demo:server');
 const http = require('http');
 
@@ -6,11 +6,20 @@ const http = require('http');
  * Listen on provided port, on all network interfaces.
  */
 
-app.listen({ port: 4000 }, () =>
-  console.log(`🚀 Server ready at http://localhost:4000${apolloServer.graphqlPath}`)
-);
-app.on('error', onError);
-app.on('listening', onListening);
+
+// Database
+const connectDb = require('../db');
+
+const port = process.env.PORT || 4000;
+
+connectDb().then(async () => {
+  app.listen(port, () =>
+    console.log(`🚀 Server ready at http://localhost:${port}${apolloServer.graphqlPath}`)
+  )
+  app.on('error', onError);
+  app.on('listening', onListening);
+});
+
 
 /**
  * Normalize a port into a number, string, or false.
